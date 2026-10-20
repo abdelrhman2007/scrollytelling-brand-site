@@ -5,7 +5,7 @@
 > fast enough to idle at ~0% CPU on a phone.
 
 <p align="center">
-  <img src="docs/demo.gif" width="760" alt="Scrolling the reference site: a 3D city prints layer by layer, panels close the gap, each service prints its own model">
+  <img src="https://raw.githubusercontent.com/abdelrhman2007/scrollytelling-brand-site/assets/demo.gif" width="760" alt="Scrolling the reference site: a 3D city prints layer by layer, panels close the gap, each service prints its own model">
   <br><sub>▶ <a href="https://github.com/abdelrhman2007/scrollytelling-brand-site/releases/latest">Full-quality video (MP4) in the latest release</a></sub>
 </p>
 
@@ -81,7 +81,6 @@ Or name it directly: *"Use the scrollytelling-brand-site skill to…"*
 │  └─ assets/
 │     ├─ screenshots/        the quality bar (15 images)
 │     └─ templates/          copy-ready kernel files and example modules
-├─ docs/demo.gif            the animated preview above
 ├─ .github/                 issue & pull-request templates
 ├─ CHANGELOG.md · CONTRIBUTING.md · CODE_OF_CONDUCT.md · LICENSE · NOTICE.md
 ```
