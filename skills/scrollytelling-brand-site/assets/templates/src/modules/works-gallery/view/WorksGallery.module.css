@@ -1,0 +1,68 @@
+.gallery {
+  position: relative;
+  background: var(--navy-900);
+}
+
+/* Filter bar: sits above the cases (not sticky — the cases own the viewport). */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: 0 var(--gutter) clamp(32px, 6vh, 64px) calc(var(--gutter) + var(--rail));
+  border-bottom: 1px solid var(--line);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--fg);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.chip small {
+  font-size: 0.75rem;
+  color: var(--fg-muted);
+}
+
+.chip:hover {
+  box-shadow: inset 0 0 0 1px var(--yellow);
+}
+
+.chipActive {
+  background: var(--yellow);
+  color: var(--navy-950);
+  box-shadow: none;
+}
+
+.chipActive small {
+  color: color-mix(in srgb, var(--navy-950) 65%, transparent);
+}
+
+.status {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.empty {
+  padding: 12vh var(--gutter) 16vh calc(var(--gutter) + var(--rail));
+  color: var(--fg-muted);
+}

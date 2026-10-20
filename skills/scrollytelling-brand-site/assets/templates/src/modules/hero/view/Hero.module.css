@@ -1,0 +1,237 @@
+.hero {
+  position: relative;
+  background: var(--navy-800);
+}
+
+.pin {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background-color: var(--navy-800);
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 70% 50%, transparent 40%, color-mix(in srgb, var(--navy-950) 70%, transparent) 100%),
+    linear-gradient(90deg, color-mix(in srgb, var(--navy-900) 85%, transparent) 0%, transparent 52%);
+}
+
+/* ---------- Copy ---------- */
+
+.copy {
+  position: absolute;
+  left: calc(var(--gutter) + var(--rail));
+  top: 50%;
+  translate: 0 -46%;
+  width: min(900px, 62vw);
+  pointer-events: none;
+}
+
+.phase {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.kicker {
+  margin-bottom: 1.8rem;
+  visibility: hidden;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 5.4vw, 5.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  --hl-ink: var(--navy-950);
+}
+
+.line {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.lineInner {
+  display: block;
+}
+
+.services {
+  font-family: var(--font-cond);
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 7vw, 6.8rem);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  color: var(--yellow);
+}
+
+.service {
+  display: inline-block;
+}
+
+.tagline img {
+  width: 100%;
+  height: auto;
+}
+
+.tagline {
+  margin-top: 2rem;
+  width: min(420px, 70%);
+  visibility: hidden;
+}
+
+/* ---------- HUD ---------- */
+
+.hud {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(24px, 6vh, 56px);
+  width: 250px;
+  padding: 16px 18px;
+  display: grid;
+  gap: 8px;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--fg);
+  background: color-mix(in srgb, var(--navy-950) 55%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  visibility: hidden;
+}
+
+.hudRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  text-transform: none;
+}
+
+.hudKey {
+  color: var(--fg-muted);
+  text-transform: uppercase;
+}
+
+.hudStatus {
+  color: var(--yellow);
+  text-transform: uppercase;
+}
+
+.hudBar {
+  height: 3px;
+  margin-top: 6px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hudBar span {
+  display: block;
+  height: 100%;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hudPct {
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--yellow);
+  text-align: right;
+}
+
+/* ---------- Scroll cue ---------- */
+
+.cue {
+  position: absolute;
+  left: calc(var(--gutter) + var(--rail));
+  bottom: clamp(24px, 6vh, 56px);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  visibility: hidden;
+}
+
+@media (max-width: 899px) {
+  .copy {
+    top: 20%;
+    translate: 0 0;
+    width: auto;
+    right: var(--gutter);
+  }
+  .phase {
+    transform: none;
+  }
+  .title {
+    font-size: clamp(2rem, 9.2vw, 3.6rem);
+  }
+  .vignette {
+    background:
+      linear-gradient(180deg, color-mix(in srgb, var(--navy-900) 92%, transparent) 0%, transparent 55%),
+      radial-gradient(120% 80% at 50% 70%, transparent 40%, var(--navy-950) 100%);
+  }
+  .hud {
+    width: auto;
+    left: var(--gutter);
+    bottom: 76px;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 18px;
+  }
+  .hudBar,
+  .hudPct {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .hud {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    padding: 12px 14px;
+  }
+  .hudRow:nth-child(1),
+  .hudRow:nth-child(3) {
+    display: none; /* job name + Z height: keep Layer + Status on tiny screens */
+  }
+  .hudRow {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kicker,
+  .hud,
+  .tagline {
+    visibility: visible;
+  }
+  .cue {
+    display: none;
+  }
+  .phase[data-phase="layer"],
+  .phase[data-phase="services"] {
+    display: none;
+  }
+}

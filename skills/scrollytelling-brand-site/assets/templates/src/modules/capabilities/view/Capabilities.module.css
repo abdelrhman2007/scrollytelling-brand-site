@@ -1,0 +1,329 @@
+.capabilities {
+  position: relative;
+  background-color: var(--navy-950);
+}
+
+/* ---------- Head ---------- */
+
+.head {
+  display: grid;
+  gap: clamp(20px, 4vh, 36px);
+  padding: clamp(100px, 16vh, 180px) var(--gutter) clamp(32px, 6vh, 64px) calc(var(--gutter) + var(--rail));
+}
+
+.title {
+  max-width: 14ch;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.3rem, 6vw, 6rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+
+.intro {
+  max-width: 46ch;
+  color: var(--fg-muted);
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+/* ---------- Pinned stage ---------- */
+
+.stage {
+  position: relative;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--navy-950) 92%, transparent) 0%, transparent 55%);
+}
+
+/* ---------- Service copy: one slide per service, crossfaded ---------- */
+
+.copy {
+  position: absolute;
+  left: calc(var(--gutter) + var(--rail));
+  top: 50%;
+  translate: 0 -50%;
+  width: min(480px, 40vw);
+  display: grid;
+}
+
+.slide {
+  grid-area: 1 / 1;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(28px);
+  transition:
+    opacity 0.45s var(--ease-print),
+    transform 0.6s var(--ease-snap),
+    visibility 0s linear 0.45s;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition:
+    opacity 0.5s var(--ease-print) 0.1s,
+    transform 0.7s var(--ease-snap) 0.1s,
+    visibility 0s;
+}
+
+.num {
+  position: absolute;
+  top: -0.7em;
+  left: -0.05em;
+  z-index: -1;
+  font-family: var(--font-cond);
+  font-style: italic;
+  font-weight: 800;
+  font-size: clamp(8rem, 14vw, 13rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--yellow) 40%, transparent);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slideTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.desc {
+  color: var(--fg-muted);
+  font-size: clamp(0.98rem, 1.1vw, 1.1rem);
+  max-width: 44ch;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chips li {
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  margin-top: 6px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--navy-950);
+  background: var(--yellow);
+  transition: background 0.3s;
+}
+
+.cta:hover {
+  background: var(--white);
+}
+
+/* ---------- Rail: jump to any service ---------- */
+
+.rail {
+  position: absolute;
+  left: calc(var(--gutter) + var(--rail));
+  bottom: clamp(20px, 5vh, 48px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.railItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.railItem:hover {
+  color: var(--white);
+  border-color: color-mix(in srgb, var(--yellow) 60%, transparent);
+}
+
+.railItem[data-active] {
+  color: var(--navy-950);
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.railNum {
+  font-weight: 700;
+}
+
+/* ---------- HUD ---------- */
+
+.hud {
+  position: absolute;
+  right: var(--gutter);
+  bottom: clamp(20px, 5vh, 48px);
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  gap: 8px 18px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--navy-950) 60%, transparent);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.hud b {
+  font-weight: 400;
+  color: var(--white);
+}
+
+.hudStatus {
+  color: var(--yellow);
+}
+
+.hudBar {
+  grid-column: 1 / -1;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.hudBar span {
+  display: block;
+  height: 100%;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* ---------- Tablet & phone: model on top, copy below ---------- */
+
+@media (max-width: 899px) {
+  .vignette {
+    background: linear-gradient(0deg, color-mix(in srgb, var(--navy-950) 96%, transparent) 0%, color-mix(in srgb, var(--navy-950) 80%, transparent) 45%, transparent 70%);
+  }
+  .copy {
+    top: auto;
+    translate: none;
+    right: var(--gutter);
+    bottom: 140px;
+    width: auto;
+  }
+  .num {
+    font-size: 6.5rem;
+    top: -0.55em;
+  }
+  .desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .chips {
+    display: none;
+  }
+  .rail {
+    right: var(--gutter);
+    bottom: 76px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .railLabel {
+    display: none;
+  }
+  .railItem {
+    min-width: 44px;
+    justify-content: center;
+    padding: 0 10px;
+  }
+  .hud {
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: 16px;
+    padding: 10px 14px;
+    grid-template-columns: auto auto 1fr;
+  }
+  .hudStatus {
+    justify-self: end;
+  }
+}
+
+@media (max-width: 899px) and (max-height: 700px) {
+  .cta {
+    display: none;
+  }
+}
+
+/* ---------- Reduced motion: a plain list, no pin, no 3D ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .stage {
+    height: auto;
+    overflow: visible;
+    padding: 0 var(--gutter) 96px calc(var(--gutter) + var(--rail));
+  }
+  .canvas,
+  .vignette,
+  .rail,
+  .hud {
+    display: none;
+  }
+  .copy {
+    position: static;
+    translate: none;
+    width: auto;
+    gap: 64px;
+  }
+  .slide {
+    grid-area: auto;
+  }
+}

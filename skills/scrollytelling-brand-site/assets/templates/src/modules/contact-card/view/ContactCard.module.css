@@ -1,0 +1,236 @@
+.page {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: max(20px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+  background-color: var(--navy-900);
+}
+
+.card {
+  width: min(440px, 100%);
+  display: grid;
+  gap: 20px;
+  padding: 22px 20px 20px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--navy-950) 88%, transparent);
+  box-shadow: 0 40px 90px -40px rgb(0 0 0 / 0.7);
+  animation: rise 0.7s var(--ease-snap) both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 86px;
+  height: auto;
+}
+
+/* ---------- Identity ---------- */
+
+.identity {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.photo {
+  position: relative;
+  width: 136px;
+  height: 136px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: var(--navy-800);
+  box-shadow:
+    0 0 0 4px var(--navy-950),
+    0 0 0 6px var(--yellow);
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.photo span {
+  font-family: var(--font-pixel);
+  font-size: 2.6rem;
+  color: var(--yellow);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.6rem, 7vw, 2rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.role {
+  font-family: var(--font-cond);
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+  color: var(--yellow);
+}
+
+.bio {
+  max-width: 34ch;
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- Primary: save contact ---------- */
+
+.save {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+  padding: 0 22px;
+  border-radius: 16px;
+  background: var(--yellow);
+  color: var(--navy-950);
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: background 0.25s;
+}
+
+.save:hover {
+  background: var(--white);
+}
+
+.save span:last-child {
+  font-size: 1.3rem;
+}
+
+/* ---------- Channels ---------- */
+
+.actions {
+  display: grid;
+  gap: 8px;
+}
+
+.action {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--white) 3%, transparent);
+  transition:
+    border-color 0.25s,
+    background 0.25s;
+}
+
+.action:hover,
+.action:focus-visible {
+  border-color: color-mix(in srgb, var(--yellow) 60%, transparent);
+  background: color-mix(in srgb, var(--yellow) 6%, transparent);
+}
+
+.icon {
+  width: 44px;
+  height: 44px;
+  padding: 11px;
+  border-radius: 12px;
+  fill: var(--yellow);
+  background: var(--navy-800);
+}
+
+.actionText {
+  display: grid;
+  min-width: 0;
+}
+
+.actionText b {
+  font-size: 0.98rem;
+}
+
+.actionText small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+}
+
+.arrow {
+  color: var(--fg-muted);
+}
+
+/* ---------- Socials + footer ---------- */
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.socials a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.socials a:hover {
+  color: var(--yellow);
+}
+
+.foot {
+  display: grid;
+  gap: 14px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  justify-items: center;
+}
+
+.share {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.visit {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}

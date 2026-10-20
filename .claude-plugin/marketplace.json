@@ -1,0 +1,12 @@
+{
+  "name": "scrollytelling-brand-site",
+  "owner": { "name": "abdelrhman2007" },
+  "plugins": [
+    {
+      "name": "scrollytelling-brand-site",
+      "source": "./",
+      "description": "Award-level scroll-told company websites with WebGL print scenes, a CMS option, and measured performance budgets.",
+      "version": "1.0.0"
+    }
+  ]
+}

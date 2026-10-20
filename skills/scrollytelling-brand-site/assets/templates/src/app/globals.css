@@ -1,0 +1,209 @@
+/* ==========================================================================
+   DEMO — The House of Prototyping
+   Global tokens · reset · base typography
+   ========================================================================== */
+
+:root {
+  /* Brand palette */
+  --navy-950: #000f22;
+  --navy-900: #00172f;
+  --navy-800: #00264d;
+  --navy-700: #0a3a6e;
+  --blueprint: #3d7bd9;
+  --yellow: #f9d800;
+  --yellow-deep: #d9b800;
+  --paper: #f3efe6;
+  --white: #ffffff;
+
+  --fg: var(--white);
+  --fg-muted: color-mix(in srgb, var(--white) 62%, transparent);
+  --line: color-mix(in srgb, var(--white) 14%, transparent);
+
+  /* Type */
+  --font-display: var(--font-unbounded), "Arial Black", sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-pixel: var(--font-silkscreen), ui-monospace, monospace;
+  --font-cond: var(--font-barlow), "Arial Narrow", sans-serif;
+
+  /* Rhythm */
+  --gutter: clamp(16px, 4vw, 64px);
+  --rail: clamp(0px, 1.6vw, 28px);
+  --header-h: 84px;
+
+  /* Motion */
+  --ease-print: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-snap: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--navy-900);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+body[data-loading="true"] {
+  overflow: hidden;
+}
+
+img,
+svg,
+canvas,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--navy-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+html[data-cursor-mode="custom"],
+html[data-cursor-mode="custom"] * {
+  cursor: none !important;
+}
+
+/* ---------- Shared utilities ---------- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: 16px;
+  z-index: 300;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--yellow);
+  color: var(--navy-950);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  transform: translateY(-160%);
+  transition: transform 0.3s var(--ease-snap);
+}
+
+.skip-link:focus-visible {
+  transform: none;
+}
+
+/* Blueprint grid — the engineering paper everything is drawn on. */
+.blueprint {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--blueprint) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--blueprint) 16%, transparent) 1px, transparent 1px),
+    linear-gradient(color-mix(in srgb, var(--blueprint) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--blueprint) 7%, transparent) 1px, transparent 1px);
+  background-size:
+    120px 120px,
+    120px 120px,
+    24px 24px,
+    24px 24px;
+  background-position: -1px -1px;
+}
+
+/* Film grain overlay: one static, tiled, viewport-sized layer (no animation,
+   so the compositor has nothing to redo while the page is idle). */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 160px 160px;
+  contain: strict;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

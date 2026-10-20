@@ -1,0 +1,340 @@
+.case {
+  position: relative;
+  height: 260vh;
+  /* Case studies far from the viewport are not rendered at all (big RAM/GPU
+     saving with nine image-heavy sections). Height is explicit, so scroll
+     positions never change. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 260vh;
+  background: var(--navy-900);
+  color: var(--white);
+  --muted: var(--fg-muted);
+  --rule: var(--line);
+}
+
+.case[data-theme="paper"] {
+  background: var(--paper);
+  color: var(--navy-800);
+  --muted: color-mix(in srgb, var(--navy-800) 65%, transparent);
+  --rule: color-mix(in srgb, var(--navy-800) 15%, transparent);
+}
+
+.case[data-theme="yellow"] {
+  background: var(--yellow);
+  color: var(--navy-950);
+  --muted: color-mix(in srgb, var(--navy-950) 70%, transparent);
+  --rule: color-mix(in srgb, var(--navy-950) 18%, transparent);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  gap: clamp(24px, 4vw, 64px);
+  padding: calc(var(--header-h) + 1vh) var(--gutter) 6vh calc(var(--gutter) + var(--rail));
+}
+
+/* ---------- Stage ---------- */
+
+.stage {
+  position: relative;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 14px;
+}
+
+.main {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--navy-800);
+}
+
+.main img {
+  object-fit: cover;
+}
+
+.thumbs {
+  display: flex;
+  gap: 12px;
+  height: clamp(70px, 12vh, 120px);
+  overflow: hidden;
+}
+
+.thumb {
+  position: relative;
+  flex: 0 0 auto;
+  aspect-ratio: 4 / 3;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.thumb img {
+  object-fit: cover;
+}
+
+/* light */
+.beams {
+  position: absolute;
+  inset: -20% -10%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.beams span {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 18%;
+  left: 30%;
+  opacity: 0;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgb(255 236 170 / 0.55), transparent);
+  filter: blur(8px);
+}
+
+.beams span:nth-child(2) {
+  left: 44%;
+  width: 9%;
+}
+
+.beams span:nth-child(3) {
+  left: 56%;
+  width: 14%;
+}
+
+/* wipe */
+.wipeLayer {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(100% 0% 0% 0%);
+}
+
+.scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 3px;
+  background: var(--yellow);
+  box-shadow: 0 0 28px 4px color-mix(in srgb, var(--yellow) 70%, transparent);
+}
+
+/* pan */
+.pan {
+  position: absolute;
+  inset: 0 -30% 0 0;
+}
+
+/* turn */
+.turnStage {
+  grid-row: 1 / -1;
+  position: relative;
+  perspective: 1400px;
+  display: grid;
+  place-items: center;
+}
+
+.turntable {
+  position: absolute;
+  width: min(80%, 62vh);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px dashed var(--rule);
+  background: repeating-conic-gradient(from 0deg, transparent 0 8deg, color-mix(in srgb, currentColor 6%, transparent) 8deg 9deg);
+}
+
+.turnCard {
+  position: absolute;
+  height: 86%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 40px 80px -30px rgb(0 15 34 / 0.45);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.turnCard img {
+  object-fit: cover;
+}
+
+/* stack */
+.stackStage {
+  grid-row: 1 / -1;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.card {
+  position: absolute;
+  height: 70%;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -20px rgb(0 15 34 / 0.5);
+}
+
+.card img {
+  object-fit: cover;
+}
+
+/* ---------- Info ---------- */
+
+.info {
+  align-self: end;
+  display: grid;
+  gap: 16px;
+  padding-bottom: 2vh;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.counter {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+}
+
+.counter i {
+  font-style: normal;
+  color: var(--muted);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 4.4vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.22em;
+  padding-bottom: 0.06em;
+}
+
+.mask > span {
+  display: inline-block;
+}
+
+.category {
+  font-family: var(--font-cond);
+  font-style: italic;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 1.7vw, 1.6rem);
+  color: var(--yellow);
+}
+
+.case[data-theme="paper"] .category,
+.case[data-theme="yellow"] .category {
+  color: var(--navy-700);
+}
+
+.summary {
+  max-width: 42ch;
+  color: var(--muted);
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.highlights li {
+  padding: 7px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 899px) {
+  .case {
+    height: 220vh;
+  }
+  .sticky {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 18px;
+    padding-bottom: 4vh;
+  }
+  .thumbs {
+    height: 64px;
+  }
+  .summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .highlights {
+    display: none;
+  }
+  .card {
+    height: 62%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case {
+    height: auto;
+    content-visibility: visible; /* auto height: a placeholder would shift layout */
+  }
+  .sticky {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+  .wipeLayer {
+    clip-path: none;
+  }
+}
+
+/* ---------- Detail link ---------- */
+
+.link {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--navy-950);
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  transition: transform 0.4s var(--ease-snap), background 0.3s;
+}
+
+.link:hover {
+  transform: translateY(-2px);
+  background: var(--white);
+}
+
+.case[data-theme="yellow"] .link {
+  background: var(--navy-800);
+  color: var(--yellow);
+}
