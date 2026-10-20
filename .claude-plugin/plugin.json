@@ -2,9 +2,30 @@
   "name": "scrollytelling-brand-site",
   "version": "1.0.0",
   "description": "Build award-level, scroll-told company websites: a story driven by scroll, a WebGL 'layer by layer' 3D print scene, pinned per-service 3D models, projects gallery, About page, optional .NET + SQL Server CMS with inbox and private QR contact cards — tuned to near-zero idle CPU/GPU and fully responsive.",
-  "author": { "name": "abdelrhman2007" },
+  "author": {
+    "name": "abdelrhman2007"
+  },
   "homepage": "https://github.com/abdelrhman2007/scrollytelling-brand-site",
   "repository": "https://github.com/abdelrhman2007/scrollytelling-brand-site",
   "license": "MIT",
-  "keywords": ["skill", "scrollytelling", "website", "nextjs", "threejs", "react-three-fiber", "gsap", "lenis", "webgl", "3d", "awwwards", "performance", "dotnet", "cms"]
+  "keywords": [
+    "scrollytelling",
+    "scroll-animation",
+    "website",
+    "nextjs",
+    "threejs",
+    "react-three-fiber",
+    "gsap",
+    "lenis",
+    "webgl",
+    "3d",
+    "awwwards",
+    "performance",
+    "dotnet",
+    "cms"
+  ],
+  "documentationUrl": "https://github.com/abdelrhman2007/scrollytelling-brand-site#readme",
+  "supportUrl": "https://github.com/abdelrhman2007/scrollytelling-brand-site/issues",
+  "privacyPolicyUrl": "https://github.com/abdelrhman2007/scrollytelling-brand-site/blob/main/PRIVACY.md",
+  "termsOfServiceUrl": "https://github.com/abdelrhman2007/scrollytelling-brand-site/blob/main/LICENSE"
 }
