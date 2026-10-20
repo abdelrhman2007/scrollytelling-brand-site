@@ -1,0 +1,35 @@
+name: Bug report
+description: Something in the skill or templates doesn't work as described
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting! Please don't include personal data, client details or secrets.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you ask Claude, and what went wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Which file?
+      placeholder: e.g. references/3d-print-scenes.md or assets/templates/src/core/lib/gsap.ts
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: e.g. Claude Code 2.x on macOS, Next.js 15, Chrome 140
+  - type: textarea
+    id: logs
+    attributes:
+      label: Errors or screenshots
+      render: text

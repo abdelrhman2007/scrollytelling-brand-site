@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions & show-and-tell
+    url: https://github.com/abdelrhman2007/scrollytelling-brand-site/discussions
+    about: Ask how to use the skill or share a site you built with it.

@@ -4,6 +4,11 @@
 > "layer by layer" print scene, pinned 3D models per service, a projects gallery, and an optional CMS —
 > fast enough to idle at ~0% CPU on a phone.
 
+<p align="center">
+  <img src="docs/demo.gif" width="760" alt="Scrolling the reference site: a 3D city prints layer by layer, panels close the gap, each service prints its own model">
+  <br><sub>▶ <a href="https://github.com/abdelrhman2007/scrollytelling-brand-site/releases/latest">Full-quality video (MP4) in the latest release</a></sub>
+</p>
+
 | | |
 |---|---|
 | ![Hero — blueprint](skills/scrollytelling-brand-site/assets/screenshots/02-hero-blueprint.jpg) | ![Hero — printing on scroll](skills/scrollytelling-brand-site/assets/screenshots/03-hero-printing.jpg) |
@@ -76,7 +81,9 @@ Or name it directly: *"Use the scrollytelling-brand-site skill to…"*
 │  └─ assets/
 │     ├─ screenshots/        the quality bar (15 images)
 │     └─ templates/          copy-ready kernel files and example modules
-├─ CHANGELOG.md · LICENSE · NOTICE.md
+├─ docs/demo.gif            the animated preview above
+├─ .github/                 issue & pull-request templates
+├─ CHANGELOG.md · CONTRIBUTING.md · CODE_OF_CONDUCT.md · LICENSE · NOTICE.md
 ```
 
 ## Requirements
@@ -88,6 +95,11 @@ Or name it directly: *"Use the scrollytelling-brand-site skill to…"*
 
 This repository contains no personal data. Real names and phone numbers in the screenshots are pixelated, and all
 examples use fictional people and `example.com`. If you spot anything, please open an issue.
+
+## Contributing
+
+Ideas, fixes and techniques from your own builds are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). Questions and
+show-and-tell go in [Discussions](https://github.com/abdelrhman2007/scrollytelling-brand-site/discussions).
 
 ## License
 

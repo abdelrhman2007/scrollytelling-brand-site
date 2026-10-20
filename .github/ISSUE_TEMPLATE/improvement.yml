@@ -1,0 +1,30 @@
+name: Improvement idea
+description: A new technique, scroll beat, performance fix or clearer instruction
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      description: What should the skill teach or do differently?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it helps
+      description: For performance changes, include before → after numbers and how you measured them.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Workflow (SKILL.md)
+        - Architecture
+        - Scroll choreography
+        - 3D scenes
+        - Performance
+        - Responsive QA
+        - CMS (.NET)
+        - Templates
+        - Docs / README
