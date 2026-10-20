@@ -1,6 +1,9 @@
 {
   "name": "scrollytelling-brand-site",
-  "owner": { "name": "abdelrhman2007" },
+  "description": "Claude skill for award-level, scroll-told company websites — WebGL print-as-you-scroll 3D, measured performance budgets and an optional .NET CMS.",
+  "owner": {
+    "name": "abdelrhman2007"
+  },
   "plugins": [
     {
       "name": "scrollytelling-brand-site",
