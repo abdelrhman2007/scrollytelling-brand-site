@@ -1,6 +1,6 @@
 {
   "name": "scrollytelling-brand-site",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build award-level, scroll-told company websites: a story driven by scroll, a WebGL 'layer by layer' 3D print scene, pinned per-service 3D models, projects gallery, About page, optional .NET + SQL Server CMS with inbox and private QR contact cards — tuned to near-zero idle CPU/GPU and fully responsive.",
   "author": {
     "name": "abdelrhman2007"

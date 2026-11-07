@@ -15,7 +15,7 @@ src/
 │  ├─ page.tsx                Home: <Preloader/><Shell/><main id="main">…modules…</main><Finale/>   (async; getContent())
 │  ├─ about/ works/ works/[slug]/   inner pages: <Shell/> <PageReady/> modules <Finale/>
 │  ├─ [slug]/ (+ /vcard)      private QR contact cards at root addresses
-│  ├─ robots.ts sitemap.ts not-found.tsx icon.png apple-icon.png opengraph-image.jpg
+│  ├─ robots.ts sitemap.ts not-found.tsx + the favicon, Apple touch icon and Open Graph image files
 ├─ core/                      shared kernel — the ONLY thing modules may import from each other
 │  ├─ config/  brand.ts (colours, logo paths) · site.ts (siteSections, sitePages, url) · contact.ts (fallback)
 │  ├─ content/ types.ts (mirror of the CMS contract) · cms.ts (getContent/getCard) · projects.ts (shared catalogue) · vcard.ts · cards.ts
@@ -107,5 +107,5 @@ export default async function Home() {
 - Layout metadata with a title template (`%s — Brand`), `metadataBase`, canonical, Open Graph and Twitter tags.
 - JSON-LD (`ProfessionalService`).
 - `robots.ts`, and a `sitemap.ts` that includes the dynamic project pages.
-- A generated `icon.png`, `apple-icon.png` and `opengraph-image.jpg` (Pillow from the logo).
+- A generated favicon, Apple touch icon and Open Graph share image, made from the logo with Pillow and placed in `src/app/` (Next.js picks them up by file name).
 - A branded `not-found.tsx` that renders `PageReady`.
